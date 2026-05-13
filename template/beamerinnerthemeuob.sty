@@ -8,7 +8,7 @@
 { 
     \begin{tikzpicture}[remember picture, overlay]
 
-        \fill[backgroundcolor] (current page.south west) rectangle (current page.north east);
+        \fill[titlebackgroundcolor] (current page.south west) rectangle (current page.north east);
 
         \newlength{\mymargin}
         \setlength{\mymargin}{0.5cm}
@@ -48,7 +48,7 @@
                 xshift=-0.5cm,
                 outer sep=0pt,
             ] {
-            	\ifuob@dark
+            	\ifuob@titledark
                 	\includegraphics[height=\myimageheight]{template/logos/UoB_dark.png}
                	\else
                		\includegraphics[height=\myimageheight]{template/logos/UoB_light.png}
@@ -57,7 +57,7 @@
 
             \node (author) at (0, 0.33\myheight) [
                 anchor=north west,
-                color=foregroundcolor,
+                color=titleforegroundcolor,
                 font=\fontsize{12}{14}\selectfont, 
                 text width=0.67\mywidth, 
                 inner xsep=0em,
@@ -69,7 +69,7 @@
             
             \node (title) at (author.north west) [
                 anchor=south west,
-                color=foregroundcolor,
+                color=titleforegroundcolor,
                 font=\fontsize{24}{28}\selectfont,
                 align=left,
                 inner ysep=0.5em,
@@ -89,10 +89,10 @@
             \coordinate (c3) at (0.33\mywidth, 0);
             \coordinate (c4) at (0.77\mywidth, 0);
 
-            \draw [foregroundcolor, line width=1pt] (center) -- (c1);
-            \draw [foregroundcolor, line width=1pt] (center) -- (title);
-            \draw [foregroundcolor, line width=1pt] (center) -- (logo);
-            \draw [foregroundcolor, line width=1pt] (center) -- (c4);
+            \draw [titleforegroundcolor, line width=1pt] (center) -- (c1);
+            \draw [titleforegroundcolor, line width=1pt] (center) -- (title);
+            \draw [titleforegroundcolor, line width=1pt] (center) -- (logo);
+            \draw [titleforegroundcolor, line width=1pt] (center) -- (c4);
             
         \end{scope}
     

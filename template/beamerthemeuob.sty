@@ -3,12 +3,19 @@
 \RequirePackage{xcolor}
 \RequirePackage[T1]{fontenc}
 
-% Add light / dark mode toggle
-\newif\ifuob@dark
-\uob@darktrue % default: dark
+% Content slide colour mode (dark/light)
+\newif\ifuob@contentdark
+\uob@contentdarktrue % default: dark
 
-\DeclareOptionBeamer{dark}{\uob@darktrue}
-\DeclareOptionBeamer{light}{\uob@darkfalse}
+% Title page colour mode (dark/light)
+\newif\ifuob@titledark
+\uob@titledarktrue % default: dark title
+
+\DeclareOptionBeamer{dark}{\uob@contentdarktrue\uob@titledarktrue}      % dark content, dark title
+\DeclareOptionBeamer{light}{\uob@contentdarkfalse\uob@titledarkfalse}   % light content, light title
+\DeclareOptionBeamer{panda}{\uob@contentdarkfalse\uob@titledarktrue}    % light content, dark title
+\DeclareOptionBeamer{zebra}{\uob@contentdarktrue\uob@titledarkfalse}    % dark content, light title
+
 \ProcessOptionsBeamer
 
 % Settings
@@ -19,8 +26,20 @@
 
 \AtBeginSection[]
 {%
+    \setbeamercolor{background canvas}{bg=titlebackgroundcolor}
+    \setbeamercolor{normal text}{fg=titleforegroundcolor}
+    \setbeamercolor{frametitle}{fg=titleforegroundcolor, bg=titlebackgroundcolor}
+    \setbeamercolor{section in toc}{fg=titlehighlightcolor}
+    \setbeamercolor{subsection in toc}{fg=titlehighlightcolor}
+    \setbeamercolor{item}{fg=titlehighlightcolor}
     \begin{frame}
         \frametitle{Outline}
         \tableofcontents[currentsection]
     \end{frame}
+    \setbeamercolor{background canvas}{bg=backgroundcolor}
+    \setbeamercolor{normal text}{fg=foregroundcolor}
+    \setbeamercolor{frametitle}{fg=foregroundcolor, bg=backgroundcolor}
+    \setbeamercolor{section in toc}{fg=highlightcolor}
+    \setbeamercolor{subsection in toc}{fg=highlightcolor}
+    \setbeamercolor{item}{fg=yellow}
 }%

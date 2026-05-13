@@ -12,7 +12,7 @@
 \definecolor{lightblue}{HTML}{65A6D5}  % Soft blue
 
 % Define color mode variables
-\ifuob@dark
+\ifuob@contentdark
 	\colorlet{foregroundcolor}{white}
 	\colorlet{backgroundcolor}{black}
 	\colorlet{highlightcolor}{yellow}
@@ -20,6 +20,17 @@
 	\colorlet{foregroundcolor}{black}
 	\colorlet{backgroundcolor}{white}
 	\colorlet{highlightcolor}{black}
+\fi
+
+% Title page color variables (independent of content for hybrid modes)
+\ifuob@titledark
+	\colorlet{titleforegroundcolor}{white}
+	\colorlet{titlebackgroundcolor}{black}
+	\colorlet{titlehighlightcolor}{yellow}
+\else
+	\colorlet{titleforegroundcolor}{black}
+	\colorlet{titlebackgroundcolor}{white}
+	\colorlet{titlehighlightcolor}{black}
 \fi
 
 % Title Page

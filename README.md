@@ -17,11 +17,14 @@ Load the theme in the preamble:
 
 ### Color modes
 
-The theme supports dark and light modes via a beamer option:
+The theme supports different colour modes modes via a beamer option:
 
 ```latex
-\usetheme[dark]{uob}  % Dark background, white text (default)
-\usetheme[light]{uob} % White background, black text
+\usetheme[dark]{uob}    % Dark background, white text (default)
+\usetheme[light]{uob}   % White background, black text
+%% hybrid themes:
+\usetheme[panda]{uob}   % Dark title and section overview, light content slides
+\usetheme[zebra]{uob}   % Light title and section overview, dark content slides
 ```
 
 ### A note on fonts
